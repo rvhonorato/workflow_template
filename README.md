@@ -1,4 +1,4 @@
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rvhonorato/workflow_template/blob/main/workflow_template/gromacs-haddock-ab.ipynb.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rvhonorato/workflow_template/blob/review/gromacs-haddock-ab.ipynb)
 
 🚧 🚧 🚧 🚧
 
