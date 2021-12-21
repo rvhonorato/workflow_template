@@ -1,18 +1,27 @@
-# Use Case I - Antibody design
+# BioExcel - Use Case I: Antibody design
 
-#Intall miniconda for Python3
-https://docs.conda.io/en/latest/miniconda.html#linux-installers
+## Install instructions
 
-# Clone repo  
-git clone https://github.com/alevil-gmx/workflow_template.git
+1. Install `miniconda` via this [link](https://docs.conda.io/en/latest/miniconda.html#linux-installers)
 
-# Create conda enviroment with all the dependencies and activate it 
-cd workflow_template
-conda env create --name use-case1 --file environment.yml
-conda activate use-case1
+2. Clone repository
 
-# run jupyter-notebook 
+```
+$ git clone https://github.com/alevil-gmx/workflow_template.git
+```
 
-jupyter-notebook workshop-template-ab.ipynb 
+3. Create conda enviroment
 
+```bash
+$ cd workflow_template
+$ conda env create -f environment.yml
+$ conda activate bioexcel-uc1
+```
 
+3. Run jupyter-notebook
+
+```bash
+$ jupyter-notebook workshop-template-ab.ipynb
+```
+
+---

@@ -1,0 +1,22 @@
+name: bioexcel-uc1
+channels:
+  - bioconda
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.9
+  - anarci
+  - gromacs=2020.6
+  - matplotlib
+  - nglview
+  - mdtraj
+  - notebook
+  - numpy
+  - requests
+  - pandas
+  - seaborn
+  - compilers
+  # - openmpi
+  - cmake
+  - pip:
+      - pdb-tools=2.4.1

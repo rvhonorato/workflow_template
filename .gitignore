@@ -1,0 +1,5 @@
+# editor things
+.vscode
+
+# notebook checkpoints
+.ipynb_checkpoints
