@@ -10,8 +10,8 @@ tbl file they want to replace, one of ambig, unambig, hbond and dihedral.
 Will produce a param file in the current directory non-destructively.
 """
 
-__version__ = '0.1.0'
-__author__ = 'Panagiotis Koukos'
+__version__ = "0.1.0"
+__author__ = "Panagiotis Koukos"
 
 import json
 import argparse
@@ -21,33 +21,27 @@ from os import path, listdir
 def _check_input():
     """Parse and sanity-check the command line arguments."""
     parser = argparse.ArgumentParser(
-        description=__doc__,
-        formatter_class=argparse.RawDescriptionHelpFormatter
+        description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter
     )
     parser.add_argument(
-        '-param',
-        '--parameter_file',
-        nargs='?',
+        "-param",
+        "--parameter_file",
+        nargs="?",
         required=True,
-        help='Path to the parameter file'
+        help="Path to the parameter file",
     )
     parser.add_argument(
-        '-tbl',
-        '--tbl_file',
-        nargs='?',
-        required=True,
-        help='Path to the tbl file'
+        "-tbl", "--tbl_file", nargs="?", required=True, help="Path to the tbl file"
     )
     parser.add_argument(
-        '-type',
-        '--tbl_type',
-        nargs='?',
-        choices=['ambig', 'unambig', 'hbond', 'dihedral'],
+        "-type",
+        "--tbl_type",
+        nargs="?",
+        choices=["ambig", "unambig", "hbond", "dihedral"],
         required=True,
         help=(
-            'Which tbl to replace? Only allows ambig, '
-            'unambig, hbond and dihedral'
-        )
+            "Which tbl to replace? Only allows ambig, " "unambig, hbond and dihedral"
+        ),
     )
 
     args = parser.parse_args()
@@ -58,7 +52,7 @@ def load_file_to_memory(input_file):
     """Read a provided file into memory."""
     ftype = path.splitext(input_file)[-1]
     with open(input_file) as in_file:
-        if ftype.lower() == '.json':
+        if ftype.lower() == ".json":
             loaded_file = json.load(in_file)
         else:
             lines = []
@@ -67,7 +61,7 @@ def load_file_to_memory(input_file):
             # and wrap this in with to do it line-by-line
             for line in in_file:
                 lines.append(line)
-            loaded_file = ''.join(lines)
+            loaded_file = "".join(lines)
 
             # Set it to None if nothing was read so that the json field
             # in turn is set to null
@@ -80,10 +74,10 @@ def replace_tbl(param_file, tbl_file, tbl_type):
     """Replace the tbl_type tbl file in param_file with tbl_file."""
     # Poor man's switch-case
     tbl_field = {
-        'ambig': 'tblfile',
-        'hbond': 'hbondfile',
-        'unambig': 'unambigtblfile',
-        'dihedral': 'dihedralfile'
+        "ambig": "tblfile",
+        "hbond": "hbondfile",
+        "unambig": "unambigtblfile",
+        "dihedral": "dihedralfile",
     }
 
     param_file[tbl_field[tbl_type]] = tbl_file
@@ -92,10 +86,10 @@ def replace_tbl(param_file, tbl_file, tbl_type):
 
 def write_param_file(param_file):
     """Write the modified param file to disk."""
-    files_present = listdir('.')
-    param_file_present = any([_ == 'job_params.json' for _ in files_present])
+    files_present = listdir(".")
+    param_file_present = any([_ == "job_params.json" for _ in files_present])
     if param_file_present is False:
-        fname = 'job_params.json'
+        fname = "job_params.json"
     else:
         # job_params.json exists. Start going through the list of files
         # named job_params_X.json where X is int until you find one that
@@ -105,15 +99,8 @@ def write_param_file(param_file):
             i += 1
         fname = "job_params_{:d}.json".format(i)
 
-    with open(fname, 'w') as out_file:
-        print(
-            json.dumps(
-                param_file,
-                indent=4,
-                sort_keys=True
-            ),
-            file=out_file
-        )
+    with open(fname, "w") as out_file:
+        print(json.dumps(param_file, indent=4, sort_keys=True), file=out_file)
 
 
 def main():
@@ -124,5 +111,6 @@ def main():
     param_file = replace_tbl(param_file, tbl_file, args.tbl_type)
     write_param_file(param_file)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()
