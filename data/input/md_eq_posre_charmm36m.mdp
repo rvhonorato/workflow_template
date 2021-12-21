@@ -10,14 +10,14 @@ nstfout                  = 0
 nstlog                   = 10000
 nstenergy                = 10000
 nstxout-compressed       = 10000
-compressed-x-grps        = system 
+compressed-x-grps        = system
 nstlist                  = 10
 ns_type                  = grid
 pbc                      = xyz
-; 
+;
 coulombtype              = PME
 rcoulomb                 = 1.2
-fourierspacing           = 0.15 
+fourierspacing           = 0.15
 ;
 vdwtype                  = Cut-off
 vdw_modifier=Force-switch
@@ -28,12 +28,12 @@ DispCorr                 = EnerPres
 constraints              = h-bonds
 constraint_algorithm     = LINCS
 ; new
-Pcoupl                   = C-rescale
-tau_p                    = 5.0  
-ref_p                    = 1.0 
-compressibility          = 4.5e-5 
+pcoupl                   = C-rescale
+tau_p                    = 5.0
+ref_p                    = 1.0
+compressibility          = 4.5e-5
 refcoord-scaling         = all     ; to use with pos restrain
-Tcoupl                   = v-rescale 
+tcoupl                   = v-rescale
 tc-grps                  = system
-tau_t                    = 0.5 
-ref_t                    = 298 
+tau_t                    = 0.5
+ref_t                    = 298
