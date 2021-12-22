@@ -28,12 +28,20 @@ DispCorr                 = EnerPres
 constraints              = h-bonds
 constraint_algorithm     = LINCS
 ; new
+<<<<<<< Updated upstream:data/input/md_eq_posre_charmm36m.mdp
 pcoupl                   = C-rescale
+=======
+Pcoupl                   = Berendsen
+>>>>>>> Stashed changes:workflow_template/data/input/md_eq_posre_charmm36m.mdp
 tau_p                    = 5.0
 ref_p                    = 1.0
 compressibility          = 4.5e-5
 refcoord-scaling         = all     ; to use with pos restrain
+<<<<<<< Updated upstream:data/input/md_eq_posre_charmm36m.mdp
 tcoupl                   = v-rescale
+=======
+Tcoupl                   = v-rescale
+>>>>>>> Stashed changes:workflow_template/data/input/md_eq_posre_charmm36m.mdp
 tc-grps                  = system
 tau_t                    = 0.5
 ref_t                    = 298
